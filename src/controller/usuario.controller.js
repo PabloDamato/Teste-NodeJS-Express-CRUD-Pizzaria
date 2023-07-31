@@ -1,6 +1,6 @@
 const Usuario = require("../model/Usuario");
 
-const findAll = async (request, response) => {
+const findAllController = async (request, response) => {
     response.status(200).send(await Usuario.find());
 
     try {
@@ -11,7 +11,7 @@ const findAll = async (request, response) => {
     }
 }
 
-const find = async (request, response) => {
+const findController = async (request, response) => {
     const nome = request.params.nome;
     let found = false;
 
@@ -25,7 +25,7 @@ const find = async (request, response) => {
     }
 }
 
-const createUsuario = async (request, response) => {
+const createUsuarioController = async (request, response) => {
     // const user = request.body;
 
     // //valida se o corpo da mensagem está vazio
@@ -88,7 +88,7 @@ const createUsuario = async (request, response) => {
     }
 }
 
-const updateUsuario = async (request, response) => {
+const updateUsuarioController = async (request, response) => {
     const nome = request.params.nome;
     const user = request.body;
 
@@ -174,7 +174,7 @@ const updateUsuario = async (request, response) => {
     }
 }
 
-const deleteUsuario = async (request, response) => {
+const deleteUsuarioController = async (request, response) => {
     const nome = request.params.nome;
     try {
         // Encontra e deleta o usuário pelo nome
@@ -193,9 +193,9 @@ const deleteUsuario = async (request, response) => {
 }
 
 module.exports = {
-    findAll,
-    find,
-    createUsuario,
-    updateUsuario,
-    deleteUsuario
+    findAllController,
+    findController,
+    createUsuarioController,
+    updateUsuarioController,
+    deleteUsuarioController
 }
