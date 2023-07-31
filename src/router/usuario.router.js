@@ -3,12 +3,12 @@ const usuario = require("../controller/usuario.controller.js");
 
 //rotas GET
 router.get("/findAll", usuario.findAllController);
-router.get("/find/:nome", usuario.findController);
+router.get("/findByID/:id", usuario.findController);
 //rotas POST
 router.post("/create", usuario.createUsuarioController);
 //rotas PUT
-router.put("/update/:nome", usuario.updateUsuarioController);
+router.put("/update/:id", usuario.updateUsuarioController);
 //rotas DELETE
-router.delete("/delete/:nome", usuario.deleteUsuarioController);
+router.delete("/delete/:id", usuario.deleteUsuarioController);
 
 module.exports = router;
