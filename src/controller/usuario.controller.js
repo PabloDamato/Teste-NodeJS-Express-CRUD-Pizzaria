@@ -2,6 +2,13 @@ const Usuario = require("../model/Usuario");
 
 const findAll = async (request, response) => {
     response.status(200).send(await Usuario.find());
+
+    try {
+        
+    } catch (error) {
+        console.log(`Erro: ${error.message}`);
+        return response.status(500).send({message: `Erro ao localizar todos os registros.`})
+    }
 }
 
 const find = async (request, response) => {
@@ -9,62 +16,76 @@ const find = async (request, response) => {
     let found = false;
 
     response.status(200).send(await Usuario.find({nome}));
+
+    try {
+        
+    } catch (error) {
+        console.log(`Erro: ${error.message}`);
+        return response.status(500).send({message: `Erro ao localizar o usuário.`})
+    }
 }
 
 const createUsuario = async (request, response) => {
-    const user = request.body;
+    // const user = request.body;
 
-    //valida se o corpo da mensagem está vazio
-    if (Object.keys(user).length === 0) {
-        return response.status(400).send({message: "O corpo da mensagem está vazio!"});
+    // //valida se o corpo da mensagem está vazio
+    // if (Object.keys(user).length === 0) {
+    //     return response.status(400).send({message: "O corpo da mensagem está vazio!"});
+    // }
+
+    // //valida se todos os campos foram informados, pois todos os campos são obrigatórios
+    // if(!user.nome){
+    //     return response.status(400).send({message: "O campo 'nome' não foi encontrado!"});
+    // }
+
+    // if(!user.sobrenome){
+    //     return response.status(400).send({message: "O campo 'sobrenome' não foi encontrado!"});
+    // }
+
+    // if(!user.idade){
+    //     return response.status(400).send({message: "O campo 'idade' não foi encontrado!"});
+    // }
+
+    // if(!user.email){
+    //     return response.status(400).send({message: "O campo 'email' não foi encontrado!"});
+    // }
+
+    // if(!user.senha){
+    //     return response.status(400).send({message: "O campo 'senha' não foi encontrado!"});
+    // }
+
+    // if(!user.logradouro.rua){
+    //     return response.status(400).send({message: "O campo 'rua' não foi encontrado!"});
+    // }
+
+    // if(!user.logradouro.numero){
+    //     return response.status(400).send({message: "O campo 'numero' não foi encontrado!"});
+    // }
+
+    // if(!user.logradouro.cidade){
+    //     return response.status(400).send({message: "O campo 'cidade' não foi encontrado!"});
+    // }
+
+    // if(!user.logradouro.estado){
+    //     return response.status(400).send({message: "O campo 'estado' não foi encontrado!"});
+    // }
+
+    // if(!user.logradouro.pais){
+    //     return response.status(400).send({message: "O campo 'pais' não foi encontrado!"});
+    // }
+
+    // if(!user.telefone){
+    //     return response.status(400).send({message: "O campo 'telefone' não foi encontrado!"});
+    // }
+
+    // return response.status(201).send(await Usuario.create(user));
+
+    try {
+        
+    } catch (error) {
+        console.log(`Erro: ${error.message}`);
+        return response.status(500).send({message: `Erro ao criar o usuário.`})
     }
-
-    //valida se todos os campos foram informados, pois todos os campos são obrigatórios
-    if(!user.nome){
-        return response.status(400).send({message: "O campo 'nome' não foi encontrado!"});
-    }
-
-    if(!user.sobrenome){
-        return response.status(400).send({message: "O campo 'sobrenome' não foi encontrado!"});
-    }
-
-    if(!user.idade){
-        return response.status(400).send({message: "O campo 'idade' não foi encontrado!"});
-    }
-
-    if(!user.email){
-        return response.status(400).send({message: "O campo 'email' não foi encontrado!"});
-    }
-
-    if(!user.senha){
-        return response.status(400).send({message: "O campo 'senha' não foi encontrado!"});
-    }
-
-    if(!user.logradouro.rua){
-        return response.status(400).send({message: "O campo 'rua' não foi encontrado!"});
-    }
-
-    if(!user.logradouro.numero){
-        return response.status(400).send({message: "O campo 'numero' não foi encontrado!"});
-    }
-
-    if(!user.logradouro.cidade){
-        return response.status(400).send({message: "O campo 'cidade' não foi encontrado!"});
-    }
-
-    if(!user.logradouro.estado){
-        return response.status(400).send({message: "O campo 'estado' não foi encontrado!"});
-    }
-
-    if(!user.logradouro.pais){
-        return response.status(400).send({message: "O campo 'pais' não foi encontrado!"});
-    }
-
-    if(!user.telefone){
-        return response.status(400).send({message: "O campo 'telefone' não foi encontrado!"});
-    }
-
-    return response.status(201).send(await Usuario.create(user));
 }
 
 const updateUsuario = async (request, response) => {
@@ -148,7 +169,7 @@ const updateUsuario = async (request, response) => {
         return response.status(200).send(updatedUsuario);
     } catch (error) {
         //caso houver erro, o mesmo é mostrado no console e uma msg é exibida para o usuário
-        console.log(`erro: ${error}`);
+        console.log(`Erro: ${error.message}`);
         return response.status(500).send({ message: "Erro ao atualizar o usuário." });
     }
 }
