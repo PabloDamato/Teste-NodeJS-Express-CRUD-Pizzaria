@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/PabloDamato/Teste-NodeJS-Express-CRUD-Pizzaria#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.1"
