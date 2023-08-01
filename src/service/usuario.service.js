@@ -4,7 +4,7 @@ const findAllService = () => {
     return Usuario.find();
 }
 
-const findService = (id) => {
+const findUserByIdService = (id) => {
     return Usuario.findById(id);
 }
 
@@ -22,7 +22,7 @@ const deleteUsuarioService = (id) => {
 
 module.exports = {
     findAllService,
-    findService,
+    findUserByIdService,
     createUsuarioService,
     updateUsuarioService,
     deleteUsuarioService
