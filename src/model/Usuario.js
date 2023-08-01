@@ -13,7 +13,7 @@ const UsuarioSchema = new mongoose.Schema({
     },
     telefone: { type: Number },
     admin: { type: Boolean, required: true, default: false },
-    createdAt: { type: Date, required: true },
+    createdAt: { type: Date, required: true, default: Date.now() },
 });
 
 const Usuario = mongoose.model("usuarios",UsuarioSchema);
