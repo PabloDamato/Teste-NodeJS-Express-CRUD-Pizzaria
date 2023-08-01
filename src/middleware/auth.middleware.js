@@ -20,7 +20,7 @@ module.exports = async (request, response, next) => {
         return response.status(401).send({ message: "O token malformado" });
     }
 
-    jwt.verify(token, "as4587fd51c5a4s56a4d8sad5s4d6a15xc5c65a4c8w6q4", async(error, decoded) => {
+    jwt.verify(token, process.env.SECRET, async(error, decoded) => {
         if(error){
             return response.status(500).send({ message: "Token inválido!" });
         }
